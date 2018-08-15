@@ -7,4 +7,9 @@
 *.iml
 out
 gen
-
+*.py[cod]
+*.so
+*.egg
+*.egg-info
+dist
+build
