@@ -124,8 +124,15 @@ print(dictionary)
 # {2, 3}
 # >>> s1 | s2
 # {1, 2, 3, 4}
-# set和dict的唯一区别仅在于没有存储对应的value，但是，set的原理和dict一样，所以，同样不可以放入可变对象，因为无法判断两个可变对象是否相等，也就无法保证set内部“不会有重复元素”。试试把list放入set，看看是否会报错。
-#
+setData01 = set([1, 3, 5, 7, 9, 11, 21, '23'])
+setData02 = set([2, 4, 6, 8, 10, 12, 21, 20])
+print('setData01 --> ', setData01)
+print('setData02 --> ', setData02)
+print('setData01 | setData02 --> ', setData02 | setData01)
+print('setData01 & setData02 --> ', setData02 & setData01)
+# set和dict的唯一区别仅在于没有存储对应的value，但是，set的原理和dict一样，所以，同样不可以放入可变对象，
+# 因为无法判断两个可变对象是否相等，也就无法保证set内部“不会有重复元素”。试试把list放入set，看看是否会报错。
+
 # 再议不可变对象
 # 上面我们讲了，str是不变对象，而list是可变对象。
 #
@@ -157,7 +164,8 @@ print(dictionary)
 # ┌───┐                  ┌───────┐
 # │ a │─────────────────>│ 'abc' │
 # └───┘                  └───────┘
-# 当我们调用a.replace('a', 'A')时，实际上调用方法replace是作用在字符串对象'abc'上的，而这个方法虽然名字叫replace，但却没有改变字符串'abc'的内容。相反，replace方法创建了一个新字符串'Abc'并返回，如果我们用变量b指向该新字符串，就容易理解了，变量a仍指向原有的字符串'abc'，但变量b却指向新字符串'Abc'了：
+# 当我们调用a.replace('a', 'A')时，实际上调用方法replace是作用在字符串对象'abc'上的，而这个方法虽然名字叫replace，但却没有改变字符串'abc'的内容。
+# 相反，replace方法创建了一个新字符串'Abc'并返回，如果我们用变量b指向该新字符串，就容易理解了，变量a仍指向原有的字符串'abc'，但变量b却指向新字符串'Abc'了：
 #
 # ┌───┐                  ┌───────┐
 # │ a │─────────────────>│ 'abc' │
@@ -171,4 +179,14 @@ print(dictionary)
 # 使用key-value存储结构的dict在Python中非常有用，选择不可变对象作为key很重要，最常用的key是字符串。
 #
 # tuple虽然是不变对象，但试试把(1, 2, 3)和(1, [2, 3])放入dict或set中，并解释结果。
+tuple01 = (1, 2, 3)
+tuple02 = (1, [2, 3])
+dictionary['aya'] = tuple01
+dictionary['bob'] = tuple02
+print(dictionary)
+strA = 'abc'
+print(strA.replace('a', "A"))
+print(strA)
+print(tuple01[1])
+
 
