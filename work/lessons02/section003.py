@@ -1,3 +1,6 @@
+# !/usr/local/bin/python3
+# -*- coding:utf-8 -*-
+
 # 函数的参数
 # 阅读: 605005
 # 定义函数的时候，我们把参数的名字和位置确定下来，函数的接口定义就完成了。对于函数的调用者来说，只需要知道如何传递正确的参数，以及函数将返回什么样的值就够了，函数内部的复杂逻辑被封装起来，调用者无需了解。
@@ -361,28 +364,34 @@ f1(1, 2, [23, 12, 33], x=12)
 #
 # # -*- coding: utf-8 -*-
 #
-# def product(x, y):
-#     return x * y
+def product(*params):
+    if 0 == len(params):
+        raise TypeError("参数不能为空")
+    else:
+        result = 1
+        for param in params:
+            result = result * param
+        return result
 #
 # # 测试
-# print('product(5) =', product(5))
-# print('product(5, 6) =', product(5, 6))
-# print('product(5, 6, 7) =', product(5, 6, 7))
-# print('product(5, 6, 7, 9) =', product(5, 6, 7, 9))
-# if product(5) != 5:
-#     print('测试失败!')
-# elif product(5, 6) != 30:
-#     print('测试失败!')
-# elif product(5, 6, 7) != 210:
-#     print('测试失败!')
-# elif product(5, 6, 7, 9) != 1890:
-#     print('测试失败!')
-# else:
-#     try:
-#         product()
-#         print('测试失败!')
-#     except TypeError:
-#         print('测试成功!')
+print('product(5) =', product(5))
+print('product(5, 6) =', product(5, 6))
+print('product(5, 6, 7) =', product(5, 6, 7))
+print('product(5, 6, 7, 9) =', product(5, 6, 7, 9))
+if product(5) != 5:
+    print('测试失败!')
+elif product(5, 6) != 30:
+    print('测试失败!')
+elif product(5, 6, 7) != 210:
+    print('测试失败!')
+elif product(5, 6, 7, 9) != 1890:
+    print('测试失败!')
+else:
+    try:
+        product()
+        print('测试失败!')
+    except TypeError:
+        print('测试成功!')
 #  Run
 # 小结
 # Python的函数具有非常灵活的参数形态，既可以实现简单的调用，又可以传入非常复杂的参数。
