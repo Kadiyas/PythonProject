@@ -228,14 +228,6 @@ for t in triangles():
         break
 
 
-def rangeTest(x):
-    L = range(x)
-    for i in L:
-        print(i)
-
-
-rangeTest(0)
-rangeTest(1)
 # triangles()
 
 # # 期待输出:
